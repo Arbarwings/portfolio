@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blog",
+  title: "Blog | Melvin Oostendorp",
+  description: "Unloading my thoughts on the web.",
 };
 
 export default function Blog() {
