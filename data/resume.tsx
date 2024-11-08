@@ -4,6 +4,7 @@ export const data = {
   firstName: "Melvin",
   lastName: "Oostendorp",
   initials: "MO",
+  title: "Full-Stack Developer",
   description:
     "Passionate Full-Stack/Front-End Developer, team leader, and advocate for scalable, user-friendly software.",
   summary:

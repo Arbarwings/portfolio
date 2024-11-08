@@ -25,6 +25,7 @@ export default function Navbar() {
               <TooltipTrigger asChild>
                 <Link
                   href={item.href}
+                  prefetch
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
                     "size-12",

@@ -118,7 +118,7 @@ export function ResumeCard({
                   </div>
                 )}
               </motion.div>
-              {description.length > 100 && (
+              {description.length > 180 && (
                 <button className={cn("mt-1 text-xs")} onClick={handleClick}>
                   {isExpanded ? "Show less" : "Show more"}
                 </button>

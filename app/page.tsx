@@ -8,6 +8,8 @@ import Link from "next/link";
 import MoreWork from "@/components/moreWork";
 import { Metadata } from "next";
 import { getBaseURL } from "@/lib/utils";
+import { allPosts } from "content-collections";
+import { PostCard } from "@/components/post-card";
 
 export const metadata: Metadata = {
   title: "Melvin Oostendorp | Full-Stack Developer",
@@ -61,6 +63,8 @@ export default function Home() {
   // To improve SEO, we can use SSR to render the first 5 work experiences
   // and then use client-side rendering to show the rest of the work experiences
   const workToShowLimit = 5;
+
+  const postsToShow = 4;
 
   return (
     <main className="flex min-h-dvh flex-col space-y-10">
@@ -142,6 +146,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section id="blog">
+        <div className="w-full space-y-12 py-12">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
+                Latest Blog Posts
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Unloading my thoughts on the web
+              </h2>
+              <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                I write about web development, software engineering, and
+                everything in between. Here are some of my latest posts.
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-3 sm:grid-cols-2">
+            {allPosts.slice(0, postsToShow).map((post) => (
+              <PostCard
+                key={post.slug}
+                title={post.title}
+                description={post.description}
+                categories={post.categories}
+                image={post.image}
+                imageAlt={post.imageAlt}
+                href={`/blog/${post.slug}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       <section id="projects">
         <div className="w-full space-y-12 py-12">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -189,6 +224,7 @@ export default function Home() {
               sending me a direct message on{" "}
               <Link
                 href={generalData.contact.social.LinkedIn.url}
+                target="_blank"
                 className="text-blue-600 underline decoration-blue-100 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-900 dark:hover:decoration-blue-600"
               >
                 LinkedIn

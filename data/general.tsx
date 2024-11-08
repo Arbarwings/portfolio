@@ -4,15 +4,15 @@ import {
   GithubIcon,
   HouseIcon,
   LinkedinIcon,
-  //NotebookIcon,
+  NotebookIcon,
 } from "lucide-react";
 
 export const data = {
   navbar: [
     { href: "/", icon: HouseIcon, label: "Home" },
-    //{ href: "/blog", icon: NotebookIcon, label: "Blog" },
-    { href: "#projects", icon: CodeIcon, label: "Projects" },
-    { href: "#contact", icon: ContactIcon, label: "Contact" },
+    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/#projects", icon: CodeIcon, label: "Projects" },
+    { href: "/#contact", icon: ContactIcon, label: "Contact" },
   ],
   contact: {
     social: {

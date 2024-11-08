@@ -9,40 +9,35 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { LucideIcon } from "lucide-react";
 
 interface Props {
   title: string;
   href?: string;
   description: string;
-  tags: readonly string[];
+  categories: readonly string[];
   link?: string;
   image?: string;
+  imageAlt?: string;
   video?: string;
-  links?: readonly {
-    icon: LucideIcon;
-    type: string;
-    href: string;
-  }[];
   className?: string;
 }
 
-export function ProjectCard({
+export function PostCard({
   title,
   href,
   description,
-  tags,
+  categories,
   link,
   image,
+  imageAlt,
   video,
-  links,
   className,
 }: Readonly<Props>) {
   return (
     <Card className="flex h-full flex-col overflow-hidden border transition-all duration-300 ease-out hover:shadow-lg">
       <Link
         href={href ?? "#"}
-        target="_blank"
+        prefetch
         className={cn("block cursor-pointer", className)}
         aria-label={title}
       >
@@ -59,7 +54,7 @@ export function ProjectCard({
         {image && (
           <Image
             src={image}
-            alt={title}
+            alt={imageAlt ?? title}
             width={300}
             height={208}
             style={{ width: "300px", height: "208px" }}
@@ -69,7 +64,14 @@ export function ProjectCard({
       </Link>
       <CardHeader className="px-2">
         <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
+          <Link
+            href={href ?? "#"}
+            prefetch
+            className={cn("block cursor-pointer", className)}
+            aria-label={title}
+          >
+            <CardTitle className="mt-1 text-base">{title}</CardTitle>
+          </Link>
           <div className="hidden font-sans text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
@@ -79,37 +81,24 @@ export function ProjectCard({
         </div>
       </CardHeader>
       <CardContent className="mt-auto flex flex-col px-2">
-        {tags && tags.length > 0 && (
+        {categories && categories.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
-            {tags?.map((tag) => (
+            {categories?.map((category) => (
               <Badge
                 className="px-1 py-0 text-[10px]"
                 variant="secondary"
-                key={tag}
+                key={category}
               >
-                {tag}
+                {category}
               </Badge>
             ))}
           </div>
         )}
       </CardContent>
       <CardFooter className="px-2 pb-2">
-        {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
-            {links?.map((link, index) => (
-              <Link
-                href={link?.href}
-                key={`${link.type}${index}`}
-                target="_blank"
-              >
-                <Badge className="flex gap-2 px-2 py-1 text-xs">
-                  <link.icon className="h-5 w-5" />
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        )}
+        <Link prefetch href={href ?? "#"}>
+          <Badge className="flex gap-2 px-2 py-1 text-xs">Read more</Badge>
+        </Link>
       </CardFooter>
     </Card>
   );
