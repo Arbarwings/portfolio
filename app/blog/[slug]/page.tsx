@@ -81,21 +81,23 @@ export default async function Page(props: Readonly<{ params: Params }>) {
         </h1>
         <p className="m-0 text-lg">{post.description}</p>
         <div className="mt-4 flex space-x-4">
-          <div className="flex items-center space-x-2 text-sm">
-            <Avatar className="not-prose size-11">
-              <AvatarImage
-                alt={`${resumeData.firstName} ${resumeData.lastName}`}
-                src="/avatar.jpeg"
-              />
-              <AvatarFallback>{resumeData.initials}</AvatarFallback>
-            </Avatar>
-            <div className="flex-1 text-left leading-tight">
-              <p className="mb-0 font-medium">{`${resumeData.firstName} ${resumeData.lastName}`}</p>
-              <p className="mt-0 text-[12px] text-muted-foreground">
-                {resumeData.title}
-              </p>
+          <Link href="/" className="no-underline">
+            <div className="flex items-center space-x-2 text-sm">
+              <Avatar className="not-prose size-11">
+                <AvatarImage
+                  alt={`${resumeData.firstName} ${resumeData.lastName}`}
+                  src="/avatar.jpeg"
+                />
+                <AvatarFallback>{resumeData.initials}</AvatarFallback>
+              </Avatar>
+              <div className="flex-1 text-left leading-tight">
+                <p className="mb-0 font-medium">{`${resumeData.firstName} ${resumeData.lastName}`}</p>
+                <p className="mt-0 text-[12px] text-muted-foreground">
+                  {resumeData.title}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
       {post.image && (
