@@ -2,7 +2,21 @@
 
 import { Sandpack, SandpackProps } from "@codesandbox/sandpack-react";
 
-export const CodeBox: React.FC<SandpackProps> = (props) => {
+export interface CodeBoxProps extends Omit<SandpackProps, "theme"> {
+  template:
+    | "static"
+    | "react"
+    | "react-ts"
+    | "vanilla-ts"
+    | "vanilla"
+    | "node"
+    | "nextjs"
+    | "vite"
+    | "vite-react"
+    | "vite-react-ts";
+}
+
+export const CodeBox: React.FC<CodeBoxProps> = (props) => {
   return (
     <Sandpack
       {...props}
