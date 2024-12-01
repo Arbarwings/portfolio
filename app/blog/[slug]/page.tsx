@@ -116,7 +116,7 @@ export default async function Page(props: Readonly<{ params: Params }>) {
       {post.imageAlt && (
         <p className="mt-1 text-sm text-muted-foreground">{post.imageAlt}</p>
       )}
-      <div className="prose-h1:mb-0 prose-h1:mt-7">
+      <div className="md:prose-lg prose-h1:-mb-2 prose-h1:mt-7 prose-h1:text-4xl">
         <Mdx code={post.mdx} />
       </div>
       <hr className="mt-12" />
