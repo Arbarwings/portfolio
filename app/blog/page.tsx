@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blog | Melvin Oostendorp",
+  title: "Blog • Melvin Oostendorp",
   description: "Unloading my thoughts on the web.",
 };
 
@@ -12,7 +12,7 @@ export default function Blog() {
     <div className="container max-w-4xl">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
-          <h1 className="font-heading inline-block text-4xl tracking-tight lg:text-5xl">
+          <h1 className="font-heading inline-block text-4xl font-bold tracking-tight lg:text-5xl">
             Blog
           </h1>
           <p className="text-xl text-muted-foreground">

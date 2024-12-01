@@ -60,9 +60,9 @@ export function ProjectCard({
           <Image
             src={image}
             alt={title}
-            width={300}
+            width={352}
             height={208}
-            style={{ width: "300px", height: "208px" }}
+            style={{ width: "352px", height: "208px" }}
             className="overflow-hidden object-cover object-top"
           />
         )}

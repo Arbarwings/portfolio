@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -33,7 +33,8 @@ export function ResumeCard({
   period,
   description,
 }: Readonly<ResumeCardProps>) {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (description) {
@@ -41,6 +42,19 @@ export function ResumeCard({
       setIsExpanded(!isExpanded);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="block">
@@ -118,7 +132,8 @@ export function ResumeCard({
                   </div>
                 )}
               </motion.div>
-              {description.length > 180 && (
+              {((description.length > 210 && screenWidth > 763) ||
+                (description.length > 180 && screenWidth <= 763)) && (
                 <button className={cn("mt-1 text-xs")} onClick={handleClick}>
                   {isExpanded ? "Show less" : "Show more"}
                 </button>

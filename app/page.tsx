@@ -12,7 +12,7 @@ import { allPosts } from "content-collections";
 import { PostCard } from "@/components/post-card";
 
 export const metadata: Metadata = {
-  title: "Melvin Oostendorp | Full-Stack Developer",
+  title: "Melvin Oostendorp • Full-Stack Developer",
   description:
     "Melvin Oostendorp - Passionate Full-Stack/Front-End Developer, team leader, and advocate for scalable, user-friendly software.",
   keywords: [
@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <main className="flex min-h-dvh flex-col space-y-10">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
+        <div className="mx-auto w-full max-w-3xl space-y-8">
           <div className="flex justify-between gap-2">
             <div className="flex flex-1 flex-col space-y-1.5">
               <span className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">

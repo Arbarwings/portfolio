@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   }
 
   return {
-    title: page.title,
+    title: `${page.title} • Melvin Oostendorp`,
     description: page.description,
     authors: [
       {
@@ -116,7 +116,9 @@ export default async function Page(props: Readonly<{ params: Params }>) {
       {post.imageAlt && (
         <p className="mt-1 text-sm text-muted-foreground">{post.imageAlt}</p>
       )}
-      <Mdx code={post.mdx} />
+      <div className="prose-h1:mb-0 prose-h1:mt-7">
+        <Mdx code={post.mdx} />
+      </div>
       <hr className="mt-12" />
       <div className="flex justify-center py-6 lg:py-10">
         <Link
