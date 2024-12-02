@@ -5,7 +5,9 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 
-const prettyCodeOptions: Options = {};
+const prettyCodeOptions: Options = {
+  theme: "github-dark-dimmed",
+};
 
 const posts = defineCollection({
   name: "posts",

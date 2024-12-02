@@ -97,7 +97,7 @@ export function PostCard({
       </CardContent>
       <CardFooter className="px-2 pb-2">
         <Link prefetch href={href ?? "#"}>
-          <Badge className="flex gap-2 px-2 py-1 text-xs">Read more</Badge>
+          <Badge className="flex gap-2 px-2 py-1 text-xs">Read article</Badge>
         </Link>
       </CardFooter>
     </Card>
