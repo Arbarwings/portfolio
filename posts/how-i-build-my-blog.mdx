@@ -1,0 +1,348 @@
+---
+title: How I build my blog
+description: Building a blog from scratch is more than just writing content. It's about creating a seamless experience for your readers. In this article, I'll share why I started a blog, how I built it, the tech stack I used, the design decisions I made, and how I optimized it for performance.
+categories: [development, design]
+publishedAt: 2024-12-02T00:00:00Z
+image: /images/blog/tech-stack.jpg
+imageAlt: Logos of the technologies used in the blog
+---
+
+# Why I started a blog
+
+I've always been passionate about sharing knowledge and discussing the things I
+learn. Since moving to South Korea, I've been working completely remotely, which
+has given me fewer opportunities to share my knowledge with colleagues. Yes, we
+have Slack and online meetings, but it's not the same as talking face-to-face.
+So, I decided to start a blog to share my thoughts, ideas, and things I learned.
+
+# The core stack
+
+Let's start with the core technologies that powers my blog:
+<div className="grid grid-cols-12 gap-2 text-gray-100">
+  <div className="col-span-6 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://nextjs.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>Next.js</span>
+      </a>
+      <span>v15.0.3</span>
+    </p>
+  </div>
+  <div className="col-span-6 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://reactjs.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>React</span>
+      </a>
+      <span>v18.3.1</span>
+    </p>
+  </div>
+  <div className="col-span-4 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://tailwindcss.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>TailwindCSS</span>
+      </a>
+      <span>v3.4.15</span>
+    </p>
+  </div>
+  <div className="col-span-4 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://shadcn.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>Shadcn</span>
+      </a>
+      <span>v2.1.6</span>
+    </p>
+  </div>
+  <div className="col-span-4 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://www.content-collections.dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>Content Collections</span>
+      </a>
+      <span>v0.2.4</span>
+    </p>
+  </div>
+  <div className="col-span-4 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://sandpack.codesandbox.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>Sandpack</span>
+      </a>
+      <span>v2.19.10</span>
+    </p>
+  </div>
+  <div className="col-span-4 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://www.framer.com/motion/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>Framer Motion</span>
+      </a>
+      <span>v11.12.0</span>
+    </p>
+  </div>
+  <div className="col-span-4 flex flex-col items-center justify-center gap-2 rounded-md bg-primary">
+    <p className="flex flex-col items-center justify-center">
+      <a
+        href="https://www.typescriptlang.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline hover:underline text-center text-white"
+      >
+        <span>TypeScript</span>
+      </a>
+      <span>v5.7.2</span>
+    </p>
+  </div>
+</div>
+
+You might be wondering why I chose this *overkill* stack for a simple blog. Let
+me explain:
+
+1. I've been using Next.js for a while now, and I absolutely love it. It's easy
+   to set up, delivers great performance, and offers a lot of features right
+   out of the box.
+2. Choosing CSS class names is hard. With TailwindCSS, I don't have to worry
+   about that. When paired with Shadcn, an excellent collection of customizable,
+   reusable components, I can create a beautiful design with minimal effort.
+3. I didn't want to set up a database or create a CMS to manage my content.
+   Instead, I use MDX files, which combine markdown with JSX. This allows me to
+   write content in markdown and integrate React components when needed.
+4. Lastly, this blog serves as a personal playground where I can experiment with
+   new technologies and frameworks.
+
+# Content management
+
+I write my blog posts in MDX files. It's the most important part of my blog, and
+I wanted to make sure it's easy to manage and maintain.
+
+If you're unfamiliar with MDX, it's like an enhanced version of Markdown that
+also supports JSX. Think of it as Markdown on steroids: you can embed custom
+React components directly within your content.
+
+With MDX, I can create interactive code snippets and embed them directly into my
+blog posts, like this:
+
+<CounterExample />
+
+Another benefit of MDX is that it can be stored in a Git repository, making it
+easy to host and manage my content. I use [Content
+Collections](https://www.content-collections.dev/) to fetch and render my MDX
+files. Content Collections are configured using a single TypeScript file named
+`content-collections.config.ts`, which can define one or more collections.
+
+The most interesting part for me is the `schema` property. You can define the
+structure of the data using [Zod](https://zod.dev/) and validate it against the
+schema. For example, you can define a schema for a blog posts like this:
+
+```ts
+schema: (z) => ({
+  title: z.string(),
+  description: z.string(),
+  categories: z
+    .array(z.enum(["development", "design", "product", "business", "other"]))
+    .default(["development"]),
+  publishedAt: z.string().datetime(),
+  updatedAt: z.string().datetime().optional(),
+  published: z.boolean().default(true),
+  image: z.string().optional(),
+  imageAlt: z.string().optional(),
+  video: z.string().optional(),
+}),
+```
+
+You can use this schema and define metadata for your post directly at the top of
+the MDX file, like this:
+
+```mdx
+---
+title: Hello World
+description: This is my first blog post
+categories: [development, design]
+publishedAt: 2024-12-01T00:00:00Z
+image: /images/blog/hello-world.jpg
+imageAlt: Hello World image
+---
+```
+
+# Styling
+
+Back in the oldschool vanila JavaScript days, I used to write pure CSS. And
+after that, I switched to SCSS. It was not bad, but the hardest part was coming
+up with class names. With TailwindCSS, I don't have to worry about that anymore.
+To compare, here's how you would style a button in CSS:
+
+```css
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #1d4ed8;
+  border-radius: 0.25rem;
+}
+```
+
+```html
+<button class="button">Click me</button
+```
+
+And here's how you would style the same button in TailwindCSS:
+
+```html
+<button class="inline-block rounded bg-blue-700 px-4 py-2 font-semibold text-white">
+  Click me
+</button>
+```
+
+It might look a bit weird at first, but once you get used to it, you'll never
+want to go back.
+
+I believe in the philosophy of not reinventing the wheel. Use the power of
+open-source tools and building on top of it. Shadcn is a perfect example. It
+offers a collection of customizable, reusable components built with TailwindCSS
+and [Radix UI](https://www.radix-ui.com/primitives). Radix UI provides an
+unstyled, accessible foundation for building design systems with React. It
+includes essential features like full keyboard navigation, managed focus,
+[WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+compliance for accessibility, and screen reader tested.
+
+Shadcn components can be copy and pasted directly into your project. Which gives
+you the full ownership and control over the code. You can customize the
+components to fit your design system and make them your own.
+
+Animations can make content much more engaging, and I use Framer Motion to add them to my blog. While I could have used CSS/Tailwind animations, Framer Motion simplifies creating complex animations with less code and more flexibility.
+
+Here's an example of a simple animation using Framer Motion:
+
+<FramerMotionExample/>
+
+And here's the code for the animation:
+
+```tsx showLineNumbers
+<motion.div
+  className="h-[150px] w-[150px] rounded-3xl bg-primary"
+  animate={{ rotate: 360 }}
+  transition={{
+    type: "spring",
+    duration: 5,
+    bounce: 0.6,
+    repeat: Infinity,
+  }}
+/>
+```
+
+# Code snippets
+
+Writing technical content often involves sharing code snippets, which are great
+for helping readers understand complex concepts. They become even more effective
+with syntax highlighting and line numbers. To achieve this, I use
+[Shiki](https://shiki.style/) for code highlighting. Here is an example of a
+code snippet with syntax highlighting and line numbers:
+
+```tsx {2} showLineNumbers
+const dog = {
+  name: "Mond (몬드)",
+  breed: "Dachshund",
+  age: 5,
+};
+
+console.log(`My dog's name is ${dog.name}`);
+```
+
+Standard code blocks are informative, but allowing readers to interact with them
+takes things to the next level. Fortunately, there's a solution for that. I
+integrated [Sandpack](https://sandpack.codesandbox.io/) (created by the team
+behind CodeSandbox) to let readers edit code and see real-time results directly
+within the blog. This makes the learning process more hands-on and engaging.
+Sandpack even supports multiple files, popular frameworks like React and
+Next.js, and custom NPM packages. Here's an example of a Sandpack code block:
+
+<CodeBox 
+  template="react"
+  files={{
+    "/App.js":
+`export default function App() {
+    return <h1>Hello World!</h1>
+}`,
+  }}
+/>
+
+# Performance
+By using Next.js instead of a [Vite-based React app](https://vite.dev/guide/), I
+benefit from built-in features like
+[SSR](https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering),
+[SSG](https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation),
+and [image
+optimization](https://nextjs.org/docs/pages/building-your-application/optimizing/images).
+
+SSR (Server-Side Rendering) and SSG (Static Site Generation) pre-render content
+on the server, serving it as static HTML files. This means content is available
+immediately without waiting for JavaScript to load, and it significantly
+improves SEO by making it easier for search engines to crawl the content.
+
+Of course, not everything can be pre-rendered, such as interactive components or
+dynamic data. In Next.js, you can define client components using the `use
+client` [directive](https://react.dev/reference/rsc/use-client). For example, a
+client component can be defined like this:
+
+```tsx {1} showLineNumbers
+'use client'
+ 
+import { useState } from 'react'
+ 
+export default function Counter() {
+  const [count, setCount] = useState(0)
+ 
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  )
+}
+```
+
+# Final thoughts
+
+After building this blog, I realized I should have started it sooner. It's an
+excellent way to share knowledge, connect with others, and improve my skills. I
+might not be the best writer, because of my dyslexia I make a lot of mistakes,
+but in the end, it's all about sharing what I know and learning from others. I
+hope this article inspires you to start your own blog and share your knowledge
+with the world.
+
+If you're thinking about starting a blog, my advice is to use technologies
+you're comfortable with. Don't worry about the latest trends or what everyone
+else is using. Focus on what you know and enjoy working with. It will make the
+process more fun and rewarding.

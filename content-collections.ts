@@ -6,7 +6,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 
 const prettyCodeOptions: Options = {
-  theme: "github-dark-dimmed",
+  theme: {
+    dark: "github-dark-dimmed",
+    light: "catppuccin-latte",
+  },
 };
 
 const posts = defineCollection({

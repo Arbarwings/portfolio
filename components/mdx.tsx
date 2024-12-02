@@ -2,6 +2,8 @@ import { useMDXComponent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import type { FC, HTMLProps, ReactNode } from "react";
 import { CodeBox } from "@/components/code-box";
+import { CounterExample } from "@/components/blog/counter-example";
+import { FramerMotionExample } from "@/components/blog/framer-motion-example";
 
 type MdxProperties = {
   readonly code: string;
@@ -63,6 +65,8 @@ export const Mdx: FC<MdxProperties> = ({ code }) => {
         img,
         Callout,
         CodeBox,
+        CounterExample,
+        FramerMotionExample,
       }}
     />
   );
