@@ -163,17 +163,24 @@ export default function Home() {
             </div>
           </div>
           <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-3 sm:grid-cols-2">
-            {allPosts.slice(0, postsToShow).map((post) => (
-              <PostCard
-                key={post.slug}
-                title={post.title}
-                description={post.description}
-                categories={post.categories}
-                image={post.image}
-                imageAlt={post.imageAlt}
-                href={`/blog/${post.slug}`}
-              />
-            ))}
+            {allPosts
+              .toSorted(
+                (a, b) =>
+                  new Date(b.publishedAt).getTime() -
+                  new Date(a.publishedAt).getTime(),
+              )
+              .slice(0, postsToShow)
+              .map((post) => (
+                <PostCard
+                  key={post.slug}
+                  title={post.title}
+                  description={post.description}
+                  categories={post.categories}
+                  image={post.image}
+                  imageAlt={post.imageAlt}
+                  href={`/blog/${post.slug}`}
+                />
+              ))}
           </div>
         </div>
       </section>
