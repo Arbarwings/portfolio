@@ -4,6 +4,10 @@ import type { FC, HTMLProps, ReactNode } from "react";
 import { CodeBox } from "@/components/code-box";
 import { CounterExample } from "@/components/blog/counter-example";
 import { FramerMotionExample } from "@/components/blog/framer-motion-example";
+import { TextAnalysisExample } from "@/components/blog/text-analysis-example";
+import { ProsConsCard } from "@/components/blog/pros-cons-card";
+import { TableOfContents } from "@/components/blog/table-of-contents";
+import { cn } from "@/lib/utils";
 
 type MdxProperties = {
   readonly code: string;
@@ -38,10 +42,10 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
     <Image
       src={properties.src}
       alt={properties.alt}
-      width={1240}
-      height={698}
+      width={properties.width ? Number(properties.width) : 1240}
+      height={properties.height ? Number(properties.height) : 698}
       unoptimized={properties.src.startsWith("http")}
-      className="overflow-hidden rounded"
+      className={cn("overflow-hidden rounded", properties.className)}
       quality={100}
     />
   );
@@ -67,6 +71,9 @@ export const Mdx: FC<MdxProperties> = ({ code }) => {
         CodeBox,
         CounterExample,
         FramerMotionExample,
+        TextAnalysisExample,
+        ProsConsCard,
+        TableOfContents,
       }}
     />
   );
