@@ -227,6 +227,22 @@ export const data = {
   ],
   projects: [
     {
+      title: "PicSqueeze",
+      href: "https://pic-squeeze.melvinoostendorp.nl/",
+      description:
+        "A Next.js 15 app for efficient image compression and management. No data is stored on the server, and all images are compressed in memory.",
+      technologies: ["Next.js", "Redis", "Docker", "Tailwind CSS", "Vitest"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Arbarwings/pic-squeeze",
+          icon: Code2Icon,
+        },
+      ],
+      image: "/images/projects/pic-squeeze.jpg",
+      video: undefined,
+    },
+    {
       title: "Docker Web Redirect",
       href: "https://github.com/Arbarwings/docker-web-redirect",
       description:
