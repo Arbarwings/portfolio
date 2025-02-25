@@ -1,0 +1,39 @@
+{
+  "name": "Portfolio Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "runArgs": ["--name", "arbarwings-portfolio"],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "stylelint.vscode-stylelint",
+        "MylesMurphy.prettify-ts",
+        "YoavBls.pretty-ts-errors",
+        "bradlc.vscode-tailwindcss",
+        "KnisterPeter.vscode-commitizen",
+        "ms-playwright.playwright",
+        "unifiedjs.vscode-mdx"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js"
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "postCreateCommand": "sudo chown node node_modules && npm install"
+}
