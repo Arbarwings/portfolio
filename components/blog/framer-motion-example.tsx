@@ -6,7 +6,7 @@ export const FramerMotionExample = () => {
   return (
     <div className="flex justify-center p-4">
       <motion.div
-        className="h-[150px] w-[150px] rounded-3xl bg-primary"
+        className="bg-primary h-[150px] w-[150px] rounded-3xl"
         animate={{ rotate: 360 }}
         transition={{
           type: "spring",

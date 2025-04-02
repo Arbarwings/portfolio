@@ -72,7 +72,7 @@ export function ResumeCard({
         <div className="ml-4 grow flex-col items-center">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="group inline-flex items-center justify-center text-xs font-semibold leading-none sm:text-sm">
+              <h3 className="group inline-flex items-center justify-center text-xs leading-none font-semibold sm:text-sm">
                 {href ? (
                   <Link href={href} target="_blank">
                     {title}
@@ -84,7 +84,7 @@ export function ResumeCard({
                   <ChevronRightIcon className="size-4 translate-x-0 rotate-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
                 )}
               </h3>
-              <div className="text-right text-xs tabular-nums text-muted-foreground sm:text-sm">
+              <div className="text-muted-foreground text-right text-xs tabular-nums sm:text-sm">
                 {period?.start?.toLocaleDateString("en-US", {
                   year: "numeric",
                   month: period.yearOnly ? undefined : "short",
@@ -117,7 +117,7 @@ export function ResumeCard({
               >
                 {description}
                 {badges?.length && (
-                  <div className="mb-2 mt-3">
+                  <div className="mt-3 mb-2">
                     <span className="flex flex-wrap gap-1">
                       {badges.map((badge, index) => (
                         <Badge
@@ -134,7 +134,10 @@ export function ResumeCard({
               </motion.div>
               {((description.length > 210 && screenWidth > 763) ||
                 (description.length > 180 && screenWidth <= 763)) && (
-                <button className={cn("mt-1 text-xs")} onClick={handleClick}>
+                <button
+                  className={cn("mt-1 cursor-pointer text-xs")}
+                  onClick={handleClick}
+                >
                   {isExpanded ? "Show less" : "Show more"}
                 </button>
               )}

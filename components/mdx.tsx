@@ -52,8 +52,8 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
 };
 
 const Callout: FC<{ readonly children: ReactNode }> = ({ children }) => (
-  <div className="overflow-hidden rounded-lg bg-gradient-to-tr from-white/0 to-white/20 p-px">
-    <div className="rounded-[7px] bg-gradient-to-tr from-black to-neutral-950 p-6">
+  <div className="overflow-hidden rounded-lg bg-linear-to-tr from-white/0 to-white/20 p-px">
+    <div className="rounded-[7px] bg-linear-to-tr from-black to-neutral-950 p-6">
       {children}
     </div>
   </div>

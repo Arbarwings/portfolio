@@ -42,7 +42,7 @@ export const ProsConsCard: React.FC<ProsConsCardProps> = ({
             <ul className="space-y-2">
               {pros.map((pro, index) => (
                 <li key={index} className="flex items-start">
-                  <PlusIcon className="mr-2 mt-0.5 h-5 w-5 flex-shrink-0 text-green-500" />
+                  <PlusIcon className="mt-0.5 mr-2 h-5 w-5 shrink-0 text-green-500" />
                   {renderItem(pro)}
                 </li>
               ))}
@@ -56,7 +56,7 @@ export const ProsConsCard: React.FC<ProsConsCardProps> = ({
             <ul className="space-y-2">
               {cons.map((con, index) => (
                 <li key={index} className="flex items-start">
-                  <MinusIcon className="mr-2 mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" />
+                  <MinusIcon className="mt-0.5 mr-2 h-5 w-5 shrink-0 text-red-500" />
                   {renderItem(con)}
                 </li>
               ))}

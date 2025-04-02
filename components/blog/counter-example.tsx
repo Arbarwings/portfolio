@@ -27,10 +27,10 @@ export const CounterExample = () => {
           <PlusIcon className="h-4 w-4" />
         </Button>
       </div>
-      <div className="relative h-5 w-full overflow-hidden rounded-full bg-secondary">
+      <div className="bg-secondary relative h-5 w-full overflow-hidden rounded-full">
         <div
           className={cn(
-            "absolute bottom-0 left-0 top-0 rounded-full bg-gradient-to-r from-pink-500 to-primary transition-all duration-500 ease-out",
+            "to-primary absolute top-0 bottom-0 left-0 rounded-full bg-linear-to-r from-pink-500 transition-all duration-500 ease-out",
             {
               "w-0": count === 0,
               "w-1/5": count === 20,

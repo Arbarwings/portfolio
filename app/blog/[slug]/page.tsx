@@ -57,13 +57,13 @@ export default async function Page(props: Readonly<{ params: Params }>) {
   }
 
   return (
-    <article className="container prose relative max-w-3xl dark:prose-invert">
+    <article className="prose dark:prose-invert relative container max-w-3xl">
       <Link
         href="/blog"
         prefetch
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-0 hidden xl:inline-flex",
+          "absolute top-0 left-[-200px] hidden xl:inline-flex",
         )}
       >
         <ChevronLeftIcon className="mr-2 h-4 w-4" />
@@ -72,11 +72,11 @@ export default async function Page(props: Readonly<{ params: Params }>) {
       <div>
         <time
           dateTime={post.publishedAt}
-          className="block text-sm text-muted-foreground"
+          className="text-muted-foreground block text-sm"
         >
           Published on {new Date(post.publishedAt).toDateString()}
         </time>
-        <h1 className="mt-2 inline-block text-4xl leading-tight lg:text-5xl">
+        <h1 className="mt-2 mb-2 inline-block text-4xl leading-tight lg:text-5xl">
           {post.title}
         </h1>
         <p className="m-0 text-lg">{post.description}</p>
@@ -92,7 +92,7 @@ export default async function Page(props: Readonly<{ params: Params }>) {
               </Avatar>
               <div className="flex-1 text-left leading-tight">
                 <p className="mb-0 font-medium">{`${resumeData.firstName} ${resumeData.lastName}`}</p>
-                <p className="mt-0 text-[12px] text-muted-foreground">
+                <p className="text-muted-foreground mt-0 text-[12px]">
                   {resumeData.title}
                 </p>
               </div>
@@ -106,15 +106,15 @@ export default async function Page(props: Readonly<{ params: Params }>) {
           alt={post.imageAlt ?? post.title}
           width={720}
           height={405}
-          className={cn("rounded-md border bg-muted transition-colors", {
-            "mb-0 mt-8": post.imageAlt,
+          className={cn("bg-muted rounded-md border transition-colors", {
+            "mt-8 mb-0": post.imageAlt,
             "my-8": !post.imageAlt,
           })}
           priority
         />
       )}
       {post.imageAlt && (
-        <p className="mt-1 text-sm text-muted-foreground">{post.imageAlt}</p>
+        <p className="text-muted-foreground mt-1 text-sm">{post.imageAlt}</p>
       )}
       <div className="md:prose-lg prose-h1:-mb-2 prose-h1:mt-7 prose-h1:text-4xl">
         <Mdx code={post.mdx} />

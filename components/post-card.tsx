@@ -75,7 +75,7 @@ export function PostCard({
           <div className="hidden font-sans text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <div className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+          <div className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-xs text-pretty">
             {description}
           </div>
         </div>

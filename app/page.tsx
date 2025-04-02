@@ -91,7 +91,7 @@ export default function Home() {
       </section>
       <section id="about">
         <h2 className="text-xl font-bold">About</h2>
-        <div className="prose max-w-full text-pretty font-sans text-base dark:text-muted-foreground">
+        <div className="prose dark:text-muted-foreground max-w-full font-sans text-base text-pretty">
           <p className="whitespace-pre-line">{resumeData.summary}</p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default function Home() {
         <div className="w-full space-y-12 py-12">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
+              <div className="bg-foreground text-background inline-block rounded-lg px-3 py-1 text-sm">
                 Latest Blog Posts
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -188,7 +188,7 @@ export default function Home() {
         <div className="w-full space-y-12 py-12">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
+              <div className="bg-foreground text-background inline-block rounded-lg px-3 py-1 text-sm">
                 My Projects
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -219,13 +219,13 @@ export default function Home() {
       <section id="contact">
         <div className="grid w-full items-center justify-center gap-4 px-4 py-12 text-center md:px-6">
           <div className="space-y-3">
-            <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
+            <div className="bg-foreground text-background inline-block rounded-lg px-3 py-1 text-sm">
               Contact
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Get in Touch
             </h2>
-            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="text-muted-foreground mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               If you have a cool project that needs my expertise, job
               opportunity, or just want to say hello? Then get in touch by
               sending me a direct message on{" "}

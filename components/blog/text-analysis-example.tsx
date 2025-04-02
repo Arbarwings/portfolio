@@ -55,7 +55,7 @@ export const TextAnalysisExample = () => {
       </form>
 
       {result && (
-        <Card className="mt-8 border border-primary p-6">
+        <Card className="border-primary mt-8 border p-6">
           <CardHeader>
             <CardTitle>Analysis Results</CardTitle>
           </CardHeader>

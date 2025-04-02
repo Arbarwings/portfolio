@@ -21,7 +21,7 @@ export default function Blog() {
           <h1 className="font-heading inline-block text-4xl font-bold tracking-tight lg:text-5xl">
             Blog
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-muted-foreground text-xl">
             I write about web development, software engineering, and everything
             in between.
           </p>
@@ -65,7 +65,7 @@ export default function Blog() {
                   )}
                   {post.publishedAt && (
                     <CardFooter className="px-2 pb-2">
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {new Date(post.publishedAt).toDateString()}
                       </p>
                     </CardFooter>
