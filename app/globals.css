@@ -130,16 +130,16 @@
 }
 
 @layer base {
-  code[data-theme*=" "],
+  code[data-theme],
   figure[data-rehype-pretty-code-figure] pre,
-  code[data-theme*=" "] span {
+  code[data-theme] span {
     color: var(--shiki-light);
     background-color: var(--shiki-light-bg);
   }
   .dark {
-    code[data-theme*=" "],
+    code[data-theme],
     figure[data-rehype-pretty-code-figure] pre,
-    code[data-theme*=" "] span {
+    code[data-theme] span {
       color: var(--shiki-dark);
       background-color: var(--shiki-dark-bg);
     }
