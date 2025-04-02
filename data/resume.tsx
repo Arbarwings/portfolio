@@ -22,6 +22,17 @@ export const data = {
   ],
   work: [
     {
+      title: "Chief Executive Officer (CEO)",
+      company: "MondWorks",
+      href: "https://mond.works/",
+      badges: [],
+      location: "On-site",
+      logoUrl: "/images/logos/mondworks.svg",
+      start: new Date("2023-01-01"),
+      end: undefined,
+      description: undefined,
+    },
+    {
       title: "Lead Front-End Developer",
       company: "Zig",
       href: "https://www.zig.nl/",
@@ -36,20 +47,9 @@ export const data = {
       location: "Remote",
       logoUrl: "/images/logos/zig.svg",
       start: new Date("2021-01-01"),
-      end: undefined,
+      end: new Date("2025-03-30"),
       description:
         "Developed and led the implementation of a centralized Conversational Chat platform, automating and streamlining customer contact across multiple social media apps. Created a fast, reliable, and accessible web interface, enabling seamless customer interaction. Successfully integrated messages from various channels into a single platform, optimizing communication efficiency. Collaborated with cross-functional teams to align development with business objectives and enhance the user experience.",
-    },
-    {
-      title: "Chief Executive Officer (CEO)",
-      company: "MondWorks",
-      href: "https://mond.works/",
-      badges: [],
-      location: "On-site",
-      logoUrl: "/images/logos/mondworks.svg",
-      start: new Date("2023-01-01"),
-      end: undefined,
-      description: undefined,
     },
     {
       title: "Owner & Founder (Freelancer)",
