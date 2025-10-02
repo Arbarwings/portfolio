@@ -11,7 +11,7 @@ interface PostHogProviderProps {
 export function PostHogProvider({ children }: PostHogProviderProps) {
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: "/ingest",
+      api_host: "/_ph",
       ui_host: "https://eu.posthog.com",
       defaults: "2025-05-24",
       capture_exceptions: true,
