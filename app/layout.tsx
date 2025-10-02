@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@vercel/analytics/react";
+import { PostHogProvider } from "@/components/PostHogProvider";
+import { CookieBanner } from "@/components/cookie-banner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -113,18 +115,21 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
-        <Analytics />
+        <PostHogProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+              <CookieBanner />
+            </TooltipProvider>
+          </ThemeProvider>
+          <Analytics />
+        </PostHogProvider>
       </body>
     </html>
   );
