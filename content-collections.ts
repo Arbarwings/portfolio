@@ -4,6 +4,7 @@ import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
+import { z } from "zod";
 
 const prettyCodeOptions: Options = {
   theme: {
@@ -16,7 +17,7 @@ const posts = defineCollection({
   name: "posts",
   directory: "posts",
   include: "**/*.mdx",
-  schema: (z) => ({
+  schema: z.object({
     title: z.string(),
     description: z.string(),
     categories: z
@@ -28,6 +29,7 @@ const posts = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     video: z.string().optional(),
+    content: z.string(),
   }),
   transform: async (document, context) => {
     const mdx = await compileMDX(context, document, {
